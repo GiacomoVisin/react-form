@@ -33,6 +33,7 @@ function App() {
             </div>
           </form>
           <ul className="list-group">
+            {task.length === 0 ? (<div>Congratulations, all the task have been concluded</div>) : ("")}
             {task.map((task, i) => (
               <li className="list-group-item d-flex justify-content-between" key={i}>
                 {task} <button className="btn btn-danger" onClick={()=> remove(i)}><i className="bi bi-trash-fill"></i> </button>
