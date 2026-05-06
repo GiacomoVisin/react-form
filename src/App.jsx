@@ -15,7 +15,11 @@ function App() {
   }
 
 
-
+  function remove (i) {
+    
+    const fixedTasks = task.filter((task,index) => index !== i )
+    setTask(fixedTasks)
+  }
 
   return (
     <>
@@ -31,7 +35,7 @@ function App() {
           <ul className="list-group">
             {task.map((task, i) => (
               <li className="list-group-item d-flex justify-content-between" key={i}>
-                {task} <button className="btn btn-danger"><i className="bi bi-trash-fill"></i> </button>
+                {task} <button className="btn btn-danger" onClick={()=> remove(i)}><i className="bi bi-trash-fill"></i> </button>
                 </li>
             ))}
           </ul>
