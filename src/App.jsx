@@ -1,4 +1,5 @@
 import { useState } from "react"
+import Form from "./assets/components/form"
 
 const initialTask = [`Buy a CPU`, `Sell the mouse`, `Fix the stereo`]
 
@@ -8,7 +9,7 @@ function App() {
   const [newTask, setNewTask] = useState(``)
   const [task, setTask] = useState(initialTask)
 
-  function handleSubmit(e){
+  function HandleSubmit(e){
     e.preventDefault()
     setTask([newTask, ...task])
     setNewTask("")
@@ -26,12 +27,7 @@ function App() {
       <div className="container">
         <h1> ToDo List</h1>
         <div className="card">
-          <form action="" onSubmit={handleSubmit}>
-            <div className="d-flex gap-1 align-items-stretch mb-2">
-              <input type="text" className="form-control" value={newTask} onChange={e => setNewTask(e.target.value)} placeholder="add new task"/>
-              <button className="btn btn-dark"> Add new Task</button>
-            </div>
-          </form>
+          <Form onHandleSubmit={HandleSubmit} newTask={newTask} setNewTask={setNewTask}/>
           <ul className="list-group">
             {task.length === 0 ? (<div>Congratulations, all the task have been concluded</div>) : ("")}
             {task.map((task, i) => (
